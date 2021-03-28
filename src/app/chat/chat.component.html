@@ -1,0 +1,54 @@
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="card card-bordered">
+          <div class="card-header">
+            <h4 class="card-title"><strong>Chat</strong></h4> <a class="btn btn-xs btn-secondary" href="#"
+                                                                 data-abc="true">Let's Chat App</a>
+          </div>
+          <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+               style="overflow-y: scroll !important; height:400px !important;">
+
+            <div style="height: 50px" [class.media-chat-reverse]="e.id == id" class="media media-chat"
+                 *ngFor="let e of messageList">
+              <div *ngIf="e.content != null" class="row">
+                <div style="margin-top: 5px" *ngIf="e.id != id" class="col-3 px-0">
+                  <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                  <label style="margin-left: 10px">{{e.nameSendMessage}}</label>
+                </div>
+                <div class="media-body px-0" [ngClass]="e.id != id ? 'col-9' : 'col-12' ">
+                  <p>{{e.content}}</p>
+                  <p class="meta float-end">
+<!--                    <time datetime="2018">{{e.time}}</time>-->
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-center" *ngIf="e.content == null && (e.id != id)">{{e.nameSendMessage}} vừa tham gia phòng</p>
+            </div>
+
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+              <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+              <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+            </div>
+          </div>
+          <div class="publisher bt-1 border-light">
+            <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+            <input (keydown.enter)="sendMessage()" [(ngModel)]="content" class="publisher-input" type="text"
+                   placeholder="Write something">
+            <span class="publisher-btn file-group">
+              <i class="fa fa-paperclip file-browser"></i>
+              <input type="file"> </span>
+            <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a>
+            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="out()" class="btn btn-success">Thoát</button>

@@ -1,0 +1,7 @@
+<div style="height: 556px" class="d-flex justify-content-center align-items-center">
+  <div class="row">
+    <input (keydown.enter)="joinRoom()" [(ngModel)]="name" type="text" class="form-control" placeholder="Nhập tên của bạn">
+<!--    <input type="file">-->
+    <button (click)="joinRoom()" class="btn btn-success mt-2">Join</button>
+  </div>
+</div>
